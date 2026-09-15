@@ -431,7 +431,7 @@ This project was developed to gain practical experience with:
 
 ## 👨‍💻 Author
 
-**Shahbaz Ahmed**
+**Shahbaz Ahmad**
 
 Java Backend Developer | Spring Boot
 
