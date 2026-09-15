@@ -1,409 +1,405 @@
-# 🛒 SB E-Commerce Backend
+# 🛒 SB-Ecom — E-Commerce Backend
 
-A backend REST API for an E-Commerce application built using **Java, Spring Boot, Spring Data JPA, Hibernate, and H2 Database**.
+SB-Ecom is a **RESTful E-Commerce backend application** built using **Java and Spring Boot**. The project provides APIs for managing products, categories, users, authentication, and shopping carts.
 
-The project follows a layered architecture to provide a clean separation between controllers, business logic, repositories, entities, DTOs, and database operations.
-
----
-
-## 📌 Project Overview
-
-**SB E-Commerce** is a Java Spring Boot backend application designed to manage the core functionality of an online shopping platform.
-
-The current implementation focuses on:
-
-* Product management
-* Category management
-* Product-category relationships
-* File/image handling
-* RESTful APIs
-* DTO-based request/response handling
-* Database persistence using JPA/Hibernate
-* Validation
-* Exception handling
-
-The project is designed with scalability and maintainability in mind and can be extended with authentication, shopping cart, orders, payments, and other e-commerce features.
+It is designed as a backend-focused project to demonstrate practical experience with **Spring Boot, REST APIs, Spring Data JPA, Hibernate, database management, authentication, and layered application architecture**.
 
 ---
 
 ## 🚀 Features
 
-### Product Management
-
-* Create products
-* Retrieve products
-* Update products
-* Delete products
-* Manage product information
-* Associate products with categories
-
-### Category Management
-
-* Create categories
-* Retrieve categories
-* Update categories
-* Delete categories
-* Manage product categories
-
-### File Handling
-
-* Upload product-related files/images
-* Separate file handling service
-
-### Backend Features
-
-* RESTful API architecture
-* Layered architecture
-* DTO and Entity separation
-* ModelMapper integration
-* Spring Data JPA
-* Hibernate ORM
-* Request validation
-* Exception handling
-* H2 database integration
+* 🔐 User Authentication & Authorization
+* 👤 User Management
+* 📦 Product Management
+* 🗂️ Category Management
+* 🛒 Shopping Cart Management
+* 🔄 CRUD REST APIs
+* 🗄️ Database Integration using JPA/Hibernate
+* ✅ Request Validation
+* 📋 DTO-based API responses
+* 🔍 Exception Handling
+* 🧩 Layered Architecture
+* 🧪 API testing using Postman
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology              | Purpose                       |
-| ----------------------- | ----------------------------- |
-| **Java 25**             | Backend programming           |
-| **Spring Boot 4.1.0**   | Application framework         |
-| **Spring MVC**          | REST API development          |
-| **Spring Data JPA**     | Database operations           |
-| **Hibernate**           | ORM                           |
-| **H2 Database**         | Development database          |
-| **Maven**               | Build & dependency management |
-| **Lombok**              | Reduce boilerplate code       |
-| **ModelMapper**         | DTO ↔ Entity mapping          |
-| **Hibernate Validator** | Request validation            |
+| Technology          | Usage                                |
+| ------------------- | ------------------------------------ |
+| **Java**            | Core programming language            |
+| **Spring Boot**     | Backend application framework        |
+| **Spring Web**      | REST API development                 |
+| **Spring Data JPA** | Database interaction                 |
+| **Hibernate**       | ORM                                  |
+| **H2 Database**     | Development/testing database         |
+| **MySQL**           | Production-style relational database |
+| **Maven**           | Dependency management & build        |
+| **Lombok**          | Boilerplate code reduction           |
+| **ModelMapper**     | DTO ↔ Entity mapping                 |
+| **Postman**         | API testing                          |
+| **Git & GitHub**    | Version control                      |
 
 ---
 
 ## 🏗️ Project Architecture
 
-The application follows a **Layered Architecture**:
+The project follows a **layered architecture** to keep the application organized and maintainable.
 
 ```text
-                    Client / Postman
-                           │
-                           ▼
-                ┌────────────────────┐
-                │    Controller      │
-                │                    │
-                │ ProductController  │
-                │ CategoryController │
-                └─────────┬──────────┘
-                          │
-                          ▼
-                ┌────────────────────┐
-                │      Service       │
-                │                    │
-                │ ProductService     │
-                │ CategoryService    │
-                │ FileService        │
-                └─────────┬──────────┘
-                          │
-                          ▼
-                ┌────────────────────┐
-                │     Repository     │
-                │                    │
-                │ ProductRepository  │
-                │ CategoryRepository │
-                └─────────┬──────────┘
-                          │
-                          ▼
-                ┌────────────────────┐
-                │   JPA / Hibernate  │
-                └─────────┬──────────┘
-                          │
-                          ▼
-                ┌────────────────────┐
-                │    H2 Database     │
-                └────────────────────┘
+Client / Postman
+       │
+       ▼
+┌──────────────────┐
+│    Controller    │
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────┐
+│     Service      │
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────┐
+│    Repository    │
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────┐
+│     Database     │
+└──────────────────┘
 ```
+
+### Main Layers
+
+**Controller Layer**
+
+* Handles HTTP requests.
+* Defines REST endpoints.
+* Sends responses to clients.
+
+**Service Layer**
+
+* Contains business logic.
+* Processes application operations.
+
+**Repository Layer**
+
+* Communicates with the database.
+* Uses Spring Data JPA repositories.
+
+**Entity Layer**
+
+* Represents database tables using JPA entities.
+
+**DTO Layer**
+
+* Defines the data exposed through APIs.
+* Helps separate API models from database entities.
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```text
-src/
-└── main/
-    ├── java/
-    │   └── com/
-    │       └── ecommerce/
-    │           └── project/
-    │               ├── config/
-    │               │   ├── AppConfig.java
-    │               │   └── AppConstants.java
-    │               │
-    │               ├── controller/
-    │               │   ├── CategoryController.java
-    │               │   └── ProductController.java
-    │               │
-    │               ├── exceptions/
-    │               │
-    │               ├── model/
-    │               │   ├── Category.java
-    │               │   └── Product.java
-    │               │
-    │               ├── payload/
-    │               │
-    │               ├── repositories/
-    │               │   ├── CategoryRepository.java
-    │               │   └── ProductRepository.java
-    │               │
-    │               ├── service/
-    │               │   ├── CategoryService.java
-    │               │   ├── CategoryServiceImpl.java
-    │               │   ├── FileService.java
-    │               │   ├── FileServiceImpl.java
-    │               │   ├── ProductService.java
-    │               │   └── ProductServiceImpl.java
-    │               │
-    │               └── SbEcomApplication.java
+src
+└── main
+    ├── java
+    │   └── com.ecommerce.project
+    │       ├── config
+    │       ├── controllers
+    │       ├── dto
+    │       ├── entities
+    │       ├── exceptions
+    │       ├── repositories
+    │       ├── services
+    │       └── SbEcomApplication.java
     │
-    └── resources/
-        └── application.properties
+    └── resources
+        ├── application.properties
+        └── static/
 ```
+
+> The exact package structure may change as the project evolves.
 
 ---
 
-## 🔄 Application Flow
+## 📦 Core Modules
 
-A typical request follows this flow:
+### 1. Category Management
 
-```text
-HTTP Request
-     │
-     ▼
-Controller
-     │
-     ▼
-DTO / Payload
-     │
-     ▼
-Service
-     │
-     ▼
-Entity
-     │
-     ▼
-Repository
-     │
-     ▼
-JPA / Hibernate
-     │
-     ▼
-H2 Database
-```
+The category module allows the application to organize products into different categories.
 
-For example, when creating a product:
+Typical operations include:
 
-```text
-POST /products
-      ↓
-ProductController
-      ↓
-ProductService
-      ↓
-ProductServiceImpl
-      ↓
-ProductRepository
-      ↓
-Hibernate
-      ↓
-H2 Database
-```
+* Create category
+* Get all categories
+* Get category by ID
+* Update category
+* Delete category
+
+---
+
+### 2. Product Management
+
+The product module handles the products available in the store.
+
+Typical operations include:
+
+* Create product
+* Get products
+* Get product by ID
+* Update product
+* Delete product
+* Associate products with categories
+
+---
+
+### 3. Authentication
+
+The application includes authentication-related functionality for handling users and securing application operations.
+
+The authentication module is designed to provide:
+
+* User registration
+* User authentication
+* User-related operations
+* Authentication utility functionality
+
+---
+
+### 4. Cart Management
+
+The cart module allows users to manage products they intend to purchase.
+
+Cart functionality includes:
+
+* Create/manage carts
+* Add products to cart
+* Update cart items
+* Remove cart items
+* Retrieve cart information
+* Manage cart quantities
 
 ---
 
 ## 🗄️ Database
 
-The project currently uses **H2 Database** for development.
+The application uses **JPA/Hibernate** for object-relational mapping.
 
-The application is configured to use an in-memory H2 database, which makes it easy to run the project without installing a separate database server.
-
-The persistence layer uses:
+### Main Entities
 
 ```text
-Spring Data JPA
-        ↓
-    Hibernate
-        ↓
-     H2 DB
+User
+ │
+ └── Cart
+      │
+      └── CartItem
+             │
+             └── Product
+                    │
+                    └── Category
 ```
 
-### H2 Console
+The relationships between entities are managed using JPA annotations such as:
 
-The H2 console can be enabled through:
-
-```properties
-spring.h2.console.enabled=true
+```java
+@Entity
+@OneToMany
+@ManyToOne
+@OneToOne
 ```
 
 ---
 
-## ⚙️ Prerequisites
+## 🔗 REST API
 
-Before running the project, make sure you have installed:
+The application exposes RESTful APIs for interacting with the e-commerce system.
 
-* **JDK 25**
-* **Maven**
-* **Git**
-* **IntelliJ IDEA** or another Java IDE
+Example endpoint structure:
+
+```text
+/api
+├── /categories
+├── /products
+├── /users
+├── /auth
+└── /carts
+```
+
+### Example Requests
+
+#### Get Categories
+
+```http
+GET /api/categories
+```
+
+#### Get Products
+
+```http
+GET /api/products
+```
+
+#### Create Product
+
+```http
+POST /api/products
+```
+
+#### Get Cart
+
+```http
+GET /api/carts/{cartId}
+```
+
+> Endpoint paths may change as the project continues to evolve.
 
 ---
 
-## ▶️ How to Run
+## ⚙️ Getting Started
 
-### 1. Clone the repository
+### Prerequisites
+
+Make sure you have the following installed:
+
+* Java JDK
+* Maven
+* Git
+* IntelliJ IDEA or another Java IDE
+* Postman (recommended)
+
+---
+
+## 📥 Clone the Repository
 
 ```bash
 git clone https://github.com/Shahbaz-Ahmad98/sb-ecom.git
 ```
 
-### 2. Navigate to the project
+Navigate to the project:
 
 ```bash
 cd sb-ecom
 ```
 
-### 3. Build the project
+---
 
-```bash
-mvn clean install
-```
+## ▶️ Run the Application
 
-### 4. Run the application
+Using Maven:
 
 ```bash
 mvn spring-boot:run
 ```
 
-Alternatively, run the main Spring Boot class from IntelliJ IDEA.
+Or run the main class from your IDE:
 
----
+```text
+SbEcomApplication.java
+```
 
-## 🌐 Application URL
-
-Once the application starts successfully:
+The application runs on:
 
 ```text
 http://localhost:8080
 ```
 
-The backend APIs can be tested using tools such as:
+---
 
-* Postman
-* IntelliJ HTTP Client
-* cURL
-* Frontend applications
+## 🔧 Configuration
+
+Application configuration is maintained in:
+
+```text
+src/main/resources/application.properties
+```
+
+Example development configuration:
+
+```properties
+spring.application.name=sb-ecom
+server.port=8080
+
+spring.datasource.url=jdbc:h2:mem:test
+spring.datasource.driverClassName=org.h2.Driver
+
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
+```
+
+> Database configuration should be adjusted according to your local environment.
 
 ---
 
 ## 🧪 API Testing
 
-You can use **Postman** to test the REST APIs.
+The APIs can be tested using **Postman**.
 
-Example request:
-
-```http
-POST /api/products
-Content-Type: application/json
-```
-
-Example request body:
-
-```json
-{
-  "productName": "iPhone 15",
-  "description": "Apple Smartphone",
-  "price": 69999,
-  "quantity": 10
-}
-```
-
-The exact endpoint and request structure depend on the current controller implementation.
-
----
-
-## 📦 Maven
-
-The project uses Maven for dependency management and building the application.
-
-Important dependencies include:
+Example workflow:
 
 ```text
-Spring Boot
-Spring Web MVC
-Spring Data JPA
-Hibernate
-H2 Database
-Lombok
-ModelMapper
-Hibernate Validator
-```
-
-All dependencies are configured in:
-
-```text
-pom.xml
+1. Start Spring Boot application
+          ↓
+2. Open Postman
+          ↓
+3. Send API request
+          ↓
+4. Controller receives request
+          ↓
+5. Service processes business logic
+          ↓
+6. Repository communicates with database
+          ↓
+7. API returns JSON response
 ```
 
 ---
 
-## 🔐 Current Scope
+## 📌 Current Development Status
 
-The current version focuses mainly on the backend foundation and product/category functionality.
+### Completed
 
-Future versions can include:
+* [x] Spring Boot project setup
+* [x] Product management
+* [x] Category management
+* [x] JPA/Hibernate integration
+* [x] REST APIs
+* [x] Authentication-related functionality
+* [x] Cart functionality
+* [x] DTO implementation
+* [x] Repository & service layers
+* [x] API testing with Postman
 
-* User registration and login
-* Spring Security
-* JWT authentication
-* Role-based authorization
-* Shopping cart
+### Planned Improvements
+
+* [ ] Order management
+* [ ] Payment integration
+* [ ] Product search and filtering
+* [ ] Pagination and sorting
+* [ ] Advanced authorization/role management
+* [ ] API documentation using Swagger/OpenAPI
+* [ ] Unit and integration testing
+* [ ] Docker containerization
+* [ ] Deployment to a cloud platform
+* [ ] Frontend integration
+
+---
+
+## 🔮 Future Scope
+
+The project can be extended into a complete full-stack e-commerce platform by adding:
+
+* React/Angular frontend
+* Online payment gateway
+* Order tracking
 * Wishlist
-* Order management
-* Payment integration
-* Product search
-* Product filtering
-* Pagination and sorting
-* MySQL/PostgreSQL
-* Swagger/OpenAPI documentation
-* Docker
+* Product reviews and ratings
+* Email notifications
+* Admin dashboard
+* Inventory management
 * Cloud deployment
-
----
-
-## 🛣️ Future Roadmap
-
-```text
-Product & Category
-        ↓
-Authentication
-        ↓
-Spring Security + JWT
-        ↓
-User Management
-        ↓
-Shopping Cart
-        ↓
-Order Management
-        ↓
-Payment Integration
-        ↓
-MySQL/PostgreSQL
-        ↓
-Swagger/OpenAPI
-        ↓
-Docker
-        ↓
-Cloud Deployment
-```
+* Docker & CI/CD
 
 ---
 
@@ -413,19 +409,17 @@ This project was developed to gain practical experience with:
 
 * Java backend development
 * Spring Boot
-* REST API development
-* Dependency Injection
-* Spring MVC
+* REST API design
 * Spring Data JPA
 * Hibernate ORM
+* Relational database design
 * Entity relationships
-* DTO pattern
-* Repository pattern
-* Service layer architecture
-* Database persistence
-* Validation
-* Exception handling
-* Maven project management
+* DTOs
+* Dependency Injection
+* Layered architecture
+* Authentication
+* Git & GitHub
+* API testing
 
 ---
 
@@ -433,20 +427,29 @@ This project was developed to gain practical experience with:
 
 **Shahbaz Ahmad**
 
-Java Backend Developer | Spring Boot
+Java Backend Developer
 
-### GitHub
+### Technologies & Interests
 
-[Shahbaz-Ahmad98](https://github.com/Shahbaz-Ahmad98)
+```text
+Java
+Spring Boot
+Spring Data JPA
+Hibernate
+REST APIs
+MySQL
+Git & GitHub
+Backend Development
+```
 
 ---
 
 ## ⭐ Support
 
-If you find this project useful, consider giving the repository a ⭐ on GitHub.
+If you find this project useful for learning or reference, consider giving the repository a ⭐ on GitHub.
 
 ---
 
 ## 📄 License
 
-This project is created for learning and educational purposes.
+This project is intended primarily for **learning and educational purposes**.
