@@ -1,8 +1,8 @@
 # 🛒 SB-Ecom — E-Commerce Backend
 
-SB-Ecom is a **RESTful E-Commerce backend application** built using **Java and Spring Boot**. The project provides APIs for managing products, categories, users, authentication, and shopping carts.
+SB-Ecom is a **RESTful E-Commerce backend application** built using **Java and Spring Boot**. The project provides APIs for managing products, categories, users, authentication, shopping carts, and orders.
 
-It is designed as a backend-focused project to demonstrate practical experience with **Spring Boot, REST APIs, Spring Data JPA, Hibernate, database management, authentication, and layered application architecture**.
+It is designed as a backend-focused project to demonstrate practical experience with **Spring Boot, REST APIs, Spring Data JPA, Hibernate, PostgreSQL, authentication and authorization, pagination, sorting, filtering, exception handling, and layered application architecture**.
 
 ---
 
