@@ -1,54 +1,52 @@
 # 🛒 SB-Ecom — E-Commerce Backend
 
-SB-Ecom is a RESTful E-Commerce backend application built using Java and Spring Boot. The project provides APIs for managing products, categories, users, authentication, shopping carts, and orders.
+SB-Ecom is a **RESTful E-Commerce backend application** built using **Java and Spring Boot**. The project provides APIs for managing products, categories, users, authentication, and shopping carts.
 
-It is designed as a backend-focused project to demonstrate practical experience with Spring Boot, REST APIs, Spring Data JPA, Hibernate, PostgreSQL, authentication and authorization, pagination, sorting, filtering, exception handling, and layered application architecture.
+It is designed as a backend-focused project to demonstrate practical experience with **Spring Boot, REST APIs, Spring Data JPA, Hibernate, database management, authentication, and layered application architecture**.
 
+---
 
 ## 🚀 Features
 
-- 🔐 User Authentication & Authorization
-- 👤 User Management
-- 📦 Product Management
-- 🗂️ Category Management
-- 🛒 Shopping Cart Management
-- 📋 Order Management
-- 🔎 Product Search & Filtering
-- 📄 Pagination & Sorting
-- 🔄 CRUD REST APIs
-- 🗄️ PostgreSQL Database Integration
-- 🧩 Spring Data JPA & Hibernate ORM
-- ✅ Request Validation
-- 📋 DTO-based API Responses
-- 🔍 Global Exception Handling
-- 🛡️ Role-based Authorization
-- 🏗️ Layered Architecture
-- 🧪 API Testing using Postman
+* 🔐 User Authentication & Authorization
+* 👤 User Management
+* 📦 Product Management
+* 🗂️ Category Management
+* 🛒 Shopping Cart Management
+* 🔄 CRUD REST APIs
+* 🗄️ Database Integration using JPA/Hibernate
+* ✅ Request Validation
+* 📋 DTO-based API responses
+* 🔍 Exception Handling
+* 🧩 Layered Architecture
+* 🧪 API testing using Postman
 
+---
 
 ## 🛠️ Tech Stack
 
-| Technology | Usage |
-|------------|-------|
-| Java | Core programming language |
-| Spring Boot | Backend application framework |
-| Spring Web | REST API development |
-| Spring Security | Authentication & authorization |
-| Spring Data JPA | Database interaction |
-| Hibernate | ORM |
-| PostgreSQL | Relational database |
-| Maven | Dependency management & build |
-| Lombok | Boilerplate code reduction |
-| ModelMapper | DTO ↔ Entity mapping |
-| JWT | Token-based authentication |
-| Postman | API testing |
-| Git & GitHub | Version control |
+| Technology          | Usage                                |
+| ------------------- | ------------------------------------ |
+| **Java**            | Core programming language            |
+| **Spring Boot**     | Backend application framework        |
+| **Spring Web**      | REST API development                 |
+| **Spring Data JPA** | Database interaction                 |
+| **Hibernate**       | ORM                                  |
+| **H2 Database**     | Development/testing database         |
+| **MySQL**           | Production-style relational database |
+| **Maven**           | Dependency management & build        |
+| **Lombok**          | Boilerplate code reduction           |
+| **ModelMapper**     | DTO ↔ Entity mapping                 |
+| **Postman**         | API testing                          |
+| **Git & GitHub**    | Version control                      |
 
+---
 
 ## 🏗️ Project Architecture
 
-The project follows a layered architecture to keep the application organized, maintainable, and scalable.
+The project follows a **layered architecture** to keep the application organized and maintainable.
 
+```text
 Client / Postman
        │
        ▼
@@ -68,453 +66,395 @@ Client / Postman
          │
          ▼
 ┌──────────────────┐
-│    PostgreSQL    │
+│     Database     │
 └──────────────────┘
-
+```
 
 ### Main Layers
 
-Controller Layer
+**Controller Layer**
 
-- Handles HTTP requests.
-- Defines REST endpoints.
-- Validates and processes incoming requests.
-- Returns appropriate HTTP responses.
+* Handles HTTP requests.
+* Defines REST endpoints.
+* Sends responses to clients.
 
-Service Layer
+**Service Layer**
 
-- Contains business logic.
-- Processes application operations.
-- Coordinates between controllers and repositories.
+* Contains business logic.
+* Processes application operations.
 
-Repository Layer
+**Repository Layer**
 
-- Communicates with the database.
-- Uses Spring Data JPA repositories.
-- Handles database operations.
+* Communicates with the database.
+* Uses Spring Data JPA repositories.
 
-Entity Layer
+**Entity Layer**
 
-- Represents database tables using JPA entities.
-- Defines relationships between application entities.
+* Represents database tables using JPA entities.
 
-DTO Layer
+**DTO Layer**
 
-- Defines data exposed through APIs.
-- Helps separate API models from database entities.
-- Controls the data returned to clients.
+* Defines the data exposed through APIs.
+* Helps separate API models from database entities.
 
-Security Layer
-
-- Handles authentication and authorization.
-- Uses JWT-based authentication.
-- Provides role-based access control for secured operations.
-
+---
 
 ## 📁 Project Structure
 
+```text
 src
 └── main
     ├── java
     │   └── com.ecommerce.project
     │       ├── config
-    │       ├── controller
+    │       ├── controllers
     │       ├── dto
     │       ├── entities
     │       ├── exceptions
     │       ├── repositories
-    │       ├── security
-    │       ├── service
-    │       ├── util
+    │       ├── services
     │       └── SbEcomApplication.java
     │
     └── resources
         ├── application.properties
         └── static/
+```
 
-The package structure may evolve as the project continues to develop.
+> The exact package structure may change as the project evolves.
 
+---
 
-# 📦 Core Modules
+## 📦 Core Modules
 
-## 1. Category Management
+### 1. Category Management
 
-The category module organizes products into different categories.
+The category module allows the application to organize products into different categories.
 
-### Operations
+Typical operations include:
 
-- Create category
-- Get all categories
-- Get category by ID
-- Update category
-- Delete category
+* Create category
+* Get all categories
+* Get category by ID
+* Update category
+* Delete category
 
+---
 
-## 2. Product Management
+### 2. Product Management
 
-The product module manages products available in the store.
+The product module handles the products available in the store.
 
-### Operations
+Typical operations include:
 
-- Create product
-- Get all products
-- Get product by ID
-- Update product
-- Delete product
-- Associate products with categories
-- Search products
-- Filter products
-- Pagination
-- Sorting
+* Create product
+* Get products
+* Get product by ID
+* Update product
+* Delete product
+* Associate products with categories
 
+---
 
-## 3. User Management
+### 3. Authentication
 
-The user module handles application users and their information.
+The application includes authentication-related functionality for handling users and securing application operations.
 
-### Functionality
+The authentication module is designed to provide:
 
-- User registration
-- User authentication
-- User information management
-- User-role relationships
-- Secured user operations
+* User registration
+* User authentication
+* User-related operations
+* Authentication utility functionality
 
+---
 
-## 4. Authentication & Authorization
-
-The application uses authentication and authorization mechanisms to secure APIs.
-
-### Authentication
-
-- User registration
-- User login
-- JWT token generation
-- JWT token validation
-- Authentication filtering
-
-### Authorization
-
-- Role-based access control
-- Protected endpoints
-- User and administrator permissions
-
-
-## 5. Cart Management
+### 4. Cart Management
 
 The cart module allows users to manage products they intend to purchase.
 
-### Functionality
+Cart functionality includes:
 
-- Create/manage carts
-- Add products to cart
-- Update cart items
-- Remove cart items
-- Retrieve cart information
-- Manage product quantities
+* Create/manage carts
+* Add products to cart
+* Update cart items
+* Remove cart items
+* Retrieve cart information
+* Manage cart quantities
 
+---
 
-## 6. Order Management
+## 🗄️ Database
 
-The order module manages customer orders generated from cart items.
-
-### Functionality
-
-- Create orders
-- Retrieve orders
-- Manage order information
-- Associate orders with users
-- Handle ordered products
-
-Order functionality may continue to evolve as additional features are implemented.
-
-
-## 7. Product Search & Filtering
-
-The application supports finding products based on different criteria.
-
-### Functionality
-
-- Search products
-- Filter products
-- Category-based product retrieval
-- Combined search and filtering operations
-
-
-## 8. Pagination & Sorting
-
-Large product collections can be handled efficiently using pagination and sorting.
-
-### Functionality
-
-- Paginated product results
-- Page size control
-- Page number selection
-- Sorting by supported fields
-- Ascending and descending sorting
-
-
-# 🗄️ Database
-
-The application uses PostgreSQL as the relational database and JPA/Hibernate for object-relational mapping.
+The application uses **JPA/Hibernate** for object-relational mapping.
 
 ### Main Entities
 
+```text
 User
  │
- ├── Cart
- │     │
- │     └── CartItem
- │            │
- │            └── Product
- │                   │
- │                   └── Category
- │
- └── Order
-       │
-       └── Ordered Products
+ └── Cart
+      │
+      └── CartItem
+             │
+             └── Product
+                    │
+                    └── Category
+```
 
 The relationships between entities are managed using JPA annotations such as:
 
+```java
 @Entity
 @OneToMany
 @ManyToOne
 @OneToOne
+```
 
+---
 
-# 🔗 REST API
+## 🔗 REST API
 
 The application exposes RESTful APIs for interacting with the e-commerce system.
 
-### Example Endpoint Structure
+Example endpoint structure:
 
+```text
 /api
 ├── /categories
 ├── /products
 ├── /users
 ├── /auth
-├── /carts
-└── /orders
-
+└── /carts
+```
 
 ### Example Requests
 
 #### Get Categories
 
+```http
 GET /api/categories
+```
 
 #### Get Products
 
+```http
 GET /api/products
-
-#### Search Products
-
-GET /api/products/search
+```
 
 #### Create Product
 
+```http
 POST /api/products
+```
 
 #### Get Cart
 
+```http
 GET /api/carts/{cartId}
+```
 
-#### Create Order
+> Endpoint paths may change as the project continues to evolve.
 
-POST /api/orders
+---
 
-Endpoint paths may change as the project continues to evolve.
+## ⚙️ Getting Started
 
-
-# ⚙️ Getting Started
-
-## Prerequisites
+### Prerequisites
 
 Make sure you have the following installed:
 
-- Java JDK
-- Maven
-- PostgreSQL
-- Git
-- IntelliJ IDEA or another Java IDE
-- Postman (recommended)
+* Java JDK
+* Maven
+* Git
+* IntelliJ IDEA or another Java IDE
+* Postman (recommended)
 
+---
 
 ## 📥 Clone the Repository
 
+```bash
 git clone https://github.com/Shahbaz-Ahmad98/sb-ecom.git
+```
 
 Navigate to the project:
 
+```bash
 cd sb-ecom
+```
 
+---
 
-# 🗄️ PostgreSQL Configuration
+## ▶️ Run the Application
 
-Create the required database in PostgreSQL:
+Using Maven:
 
-CREATE DATABASE ecommerce;
-
-Application configuration is maintained in:
-
-src/main/resources/application.properties
-
-Example configuration:
-
-spring.application.name=sb-ecom
-
-spring.datasource.url=jdbc:postgresql://localhost:5432/ecommerce
-spring.datasource.username=postgres
-spring.datasource.password=YOUR_POSTGRES_PASSWORD
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
-
-Do not commit real database passwords, JWT secrets, or other sensitive credentials to GitHub.
-
-
-# ▶️ Run the Application
-
-### Using Maven
-
+```bash
 mvn spring-boot:run
+```
 
-### Or using IntelliJ IDEA
+Or run the main class from your IDE:
 
-Run:
-
+```text
 SbEcomApplication.java
+```
 
 The application runs on:
 
+```text
 http://localhost:8080
+```
 
+---
 
-# 🧪 API Testing
+## 🔧 Configuration
 
-The APIs can be tested using Postman.
+Application configuration is maintained in:
 
-### Typical Workflow
+```text
+src/main/resources/application.properties
+```
 
-1. Start PostgreSQL
+Example development configuration:
+
+```properties
+spring.application.name=sb-ecom
+server.port=8080
+
+spring.datasource.url=jdbc:h2:mem:test
+spring.datasource.driverClassName=org.h2.Driver
+
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
+```
+
+> Database configuration should be adjusted according to your local environment.
+
+---
+
+## 🧪 API Testing
+
+The APIs can be tested using **Postman**.
+
+Example workflow:
+
+```text
+1. Start Spring Boot application
           ↓
-2. Start Spring Boot application
+2. Open Postman
           ↓
-3. Open Postman
+3. Send API request
           ↓
-4. Send API request
+4. Controller receives request
           ↓
-5. Controller receives request
+5. Service processes business logic
           ↓
-6. Service processes business logic
+6. Repository communicates with database
           ↓
-7. Repository communicates with PostgreSQL
-          ↓
-8. API returns JSON response
+7. API returns JSON response
+```
 
+---
 
-# ✅ Current Development Status
+## 📌 Current Development Status
 
-## Completed
+### Completed
 
-- [x] Spring Boot project setup
-- [x] Product management
-- [x] Category management
-- [x] JPA/Hibernate integration
-- [x] REST APIs
-- [x] Authentication
-- [x] Authorization
-- [x] JWT-based security
-- [x] Cart functionality
-- [x] DTO implementation
-- [x] Repository & service layers
-- [x] Request validation
-- [x] Exception handling
-- [x] API testing with Postman
-- [x] Order management
-- [x] Product search and filtering
-- [x] Pagination and sorting
-- [x] Role-based authorization
+* [x] Spring Boot project setup
+* [x] Product management
+* [x] Category management
+* [x] JPA/Hibernate integration
+* [x] REST APIs
+* [x] Authentication-related functionality
+* [x] Cart functionality
+* [x] DTO implementation
+* [x] Repository & service layers
+* [x] API testing with Postman
 
+### Planned Improvements
 
-## Planned Improvements
+* [ ] Order management
+* [ ] Payment integration
+* [ ] Product search and filtering
+* [ ] Pagination and sorting
+* [ ] Advanced authorization/role management
+* [ ] API documentation using Swagger/OpenAPI
+* [ ] Unit and integration testing
+* [ ] Docker containerization
+* [ ] Deployment to a cloud platform
+* [ ] Frontend integration
 
-- [ ] Payment integration
-- [ ] API documentation using Swagger/OpenAPI
-- [ ] Unit and integration testing
-- [ ] Docker containerization
-- [ ] Deployment to a cloud platform
-- [ ] Frontend integration
+---
 
-
-# 🔮 Future Scope
+## 🔮 Future Scope
 
 The project can be extended into a complete full-stack e-commerce platform by adding:
 
-- React/Angular frontend
-- Online payment gateway
-- Order tracking
-- Wishlist
-- Product reviews and ratings
-- Email notifications
-- Admin dashboard
-- Inventory management
-- Cloud deployment
-- Docker & CI/CD
-- Advanced analytics
+* React/Angular frontend
+* Online payment gateway
+* Order tracking
+* Wishlist
+* Product reviews and ratings
+* Email notifications
+* Admin dashboard
+* Inventory management
+* Cloud deployment
+* Docker & CI/CD
 
+---
 
-# 🎯 Learning Objectives
+## 🎯 Learning Objectives
 
 This project was developed to gain practical experience with:
 
-- Java backend development
-- Spring Boot
-- REST API design
-- Spring Security
-- JWT authentication
-- Role-based authorization
-- Spring Data JPA
-- Hibernate ORM
-- PostgreSQL
-- Relational database design
-- Entity relationships
-- DTOs
-- Dependency Injection
-- Layered architecture
-- Pagination
-- Sorting
-- Searching and filtering
-- Exception handling
-- Git & GitHub
-- API testing with Postman
+* Java backend development
+* Spring Boot
+* REST API design
+* Spring Data JPA
+* Hibernate ORM
+* Relational database design
+* Entity relationships
+* DTOs
+* Dependency Injection
+* Layered architecture
+* Authentication
+* Git & GitHub
+* API testing
 
+---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-Shahbaz Ahmad
+**Shahbaz Ahmad**
 
 Java Backend Developer
 
 ### Technologies & Interests
 
+```text
 Java
 Spring Boot
-Spring Security
 Spring Data JPA
 Hibernate
-PostgreSQL
 REST APIs
-JWT
+MySQL
 Git & GitHub
 Backend Development
+```
 
+---
 
-# ⭐ Support
+## ⭐ Support
 
 If you find this project useful for learning or reference, consider giving the repository a ⭐ on GitHub.
 
+---
 
-# 📄 License
+## 📄 License
 
-This project is intended primarily for learning and educational purposes.
+This project is intended primarily for **learning and educational purposes**.
+i am completed few more things so i want to update in readme.md file
+* [ ] Order management
+* [ ] Product search and filtering
+* [ ] Pagination and sorting
+* [ ] Advanced authorization/role management
