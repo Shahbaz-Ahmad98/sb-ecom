@@ -370,14 +370,14 @@ Example workflow:
 * [x] DTO implementation
 * [x] Repository & service layers
 * [x] API testing with Postman
+* [x] Order management
+* [x] Product search and filtering
+* [x] Pagination and sorting
+* [x] Advanced authorization/role management
 
 ### Planned Improvements
 
-* [ ] Order management
 * [ ] Payment integration
-* [ ] Product search and filtering
-* [ ] Pagination and sorting
-* [ ] Advanced authorization/role management
 * [ ] API documentation using Swagger/OpenAPI
 * [ ] Unit and integration testing
 * [ ] Docker containerization
