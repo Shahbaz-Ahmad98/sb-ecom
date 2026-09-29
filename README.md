@@ -27,6 +27,7 @@ The application provides APIs for managing:
 - Products
 - Categories
 - Shopping carts
+- Addresses
 - Orders
 
 The project demonstrates practical implementation of **REST API development, Spring Security, JWT authentication, role-based authorization, Spring Data JPA, Hibernate ORM, PostgreSQL, DTOs, validation, exception handling, pagination, sorting, product search, and filtering**.
@@ -95,6 +96,15 @@ The project follows a **layered architecture** to maintain separation of concern
 - Manage product quantities
 - Retrieve cart details
 
+### 🏠 Address Management
+
+- Create user addresses
+- Retrieve user addresses
+- Update addresses
+- Delete addresses
+- Address validation
+- Associate addresses with users
+
 ### 📋 Order Management
 
 - Create orders
@@ -111,6 +121,7 @@ The project follows a **layered architecture** to maintain separation of concern
 - Global exception handling
 - Layered architecture
 - PostgreSQL database integration
+- Address management
 - API testing using Postman
 
 ---
@@ -326,7 +337,21 @@ Retrieve Cart
 
 ---
 
-### 6. Order Module
+### 6. Address Module
+
+Handles user address creation, updating, validation, and persistence.
+
+```text
+Create Address
+Update Address
+Retrieve Address
+Delete Address
+Associate Address with User
+```
+
+---
+
+### 7. Order Module
 
 Handles customer orders and order-related information.
 
@@ -340,7 +365,7 @@ Handle Ordered Products
 
 ---
 
-### 7. Search, Filtering & Pagination
+### 8. Search, Filtering & Pagination
 
 Provides efficient product retrieval capabilities.
 
@@ -451,6 +476,15 @@ DELETE /api/products/{productId}
 GET    /api/carts/{cartId}
 POST   /api/carts
 PUT    /api/carts/{cartId}
+```
+
+#### Addresses
+
+```http
+POST   /api/addresses
+GET    /api/addresses
+PUT    /api/addresses/{addressId}
+DELETE /api/addresses/{addressId}
 ```
 
 #### Orders
@@ -648,6 +682,7 @@ The security layer contains functionality for:
 - [x] JWT-based security
 - [x] Role-based authorization
 - [x] Cart functionality
+- [x] Address management
 - [x] Order management
 - [x] Product search
 - [x] Product filtering
@@ -709,6 +744,7 @@ This project provides practical experience with:
 - PostgreSQL
 - Relational database design
 - Entity relationships
+- Address management
 - DTOs
 - Dependency Injection
 - Layered architecture
