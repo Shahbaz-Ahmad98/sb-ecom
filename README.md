@@ -753,7 +753,6 @@ This project provides practical experience with:
 - Request validation
 - Exception handling
 - API testing
-- Git and GitHub
 
 ---
 
