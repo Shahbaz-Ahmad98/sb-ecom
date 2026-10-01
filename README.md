@@ -719,7 +719,6 @@ The security layer contains functionality for:
 * [x] PostgreSQL integration
 * [x] JPA/Hibernate integration
 * [x] API testing with Postman
-* [x] Git and GitHub integration
 
 ### 🚧 Planned Improvements
 
@@ -820,7 +819,6 @@ Hibernate
 PostgreSQL
 REST APIs
 JWT
-Git & GitHub
 Backend Development
 ```
 
