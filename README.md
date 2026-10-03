@@ -11,6 +11,7 @@
   <img src="https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge&logo=postgresql" alt="PostgreSQL"/>
   <img src="https://img.shields.io/badge/JPA%2FHibernate-ORM-brown?style=for-the-badge" alt="JPA Hibernate"/>
   <img src="https://img.shields.io/badge/Postman-API%20Testing-orange?style=for-the-badge&logo=postman" alt="Postman"/>
+  <img src="https://img.shields.io/badge/Swagger%2FOpenAPI-API%20Documentation-green?style=for-the-badge&logo=swagger" alt="Swagger/OpenAPI"/>
 </p>
 
 ---
@@ -31,7 +32,7 @@ The application provides APIs for managing:
 * Orders
 * Payments
 
-The project demonstrates practical implementation of **REST API development, Spring Security, JWT authentication, role-based authorization, Spring Data JPA, Hibernate ORM, PostgreSQL, DTOs, validation, exception handling, pagination, sorting, product search, filtering, order processing, and payment data management**.
+The project demonstrates practical implementation of **REST API development, Spring Security, JWT authentication, role-based authorization, Spring Data JPA, Hibernate ORM, PostgreSQL, DTOs, validation, exception handling, pagination, sorting, product search, filtering, order processing, payment data management, and Swagger/OpenAPI documentation**.
 
 The project follows a **layered architecture** to maintain separation of concerns and make the application easier to maintain and extend.
 
@@ -135,27 +136,29 @@ The project follows a **layered architecture** to maintain separation of concern
 * Address management
 * Order and payment processing
 * API testing using Postman
+* Swagger / OpenAPI documentation
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Technology          | Purpose                         |
-| ------------------- | ------------------------------- |
-| **Java**            | Core programming language       |
-| **Spring Boot**     | Backend application framework   |
-| **Spring Web**      | REST API development            |
-| **Spring Security** | Authentication & authorization  |
-| **JWT**             | Token-based authentication      |
-| **Spring Data JPA** | Database interaction            |
-| **Hibernate**       | ORM / persistence               |
-| **PostgreSQL**      | Relational database             |
-| **Maven**           | Build and dependency management |
-| **Lombok**          | Boilerplate code reduction      |
-| **ModelMapper**     | DTO ↔ Entity mapping            |
-| **Postman**         | API testing                     |
-| **Git**             | Version control                 |
-| **GitHub**          | Source code hosting             |
+| Technology            | Purpose                         |
+| --------------------- | ------------------------------- |
+| **Java**              | Core programming language       |
+| **Spring Boot**       | Backend application framework   |
+| **Spring Web**        | REST API development            |
+| **Spring Security**   | Authentication & authorization  |
+| **JWT**               | Token-based authentication      |
+| **Spring Data JPA**   | Database interaction            |
+| **Hibernate**         | ORM / persistence               |
+| **PostgreSQL**        | Relational database             |
+| **Maven**             | Build and dependency management |
+| **Lombok**            | Boilerplate code reduction      |
+| **ModelMapper**       | DTO ↔ Entity mapping            |
+| **Postman**           | API testing                     |
+| **Swagger / OpenAPI** | API documentation               |
+| **Git**               | Version control                 |
+| **GitHub**            | Source code hosting             |
 
 ---
 
@@ -423,14 +426,14 @@ The application uses **PostgreSQL** as its relational database with **JPA/Hibern
              │               │
              └───────┬───────┘
                      ▼
-               ┌───────────┐
-               │  Product  │
-               └─────┬─────┘
-                     │
-                     ▼
-               ┌───────────┐
-               │ Category  │
-               └───────────┘
+                ┌───────────┐
+                │  Product  │
+                └─────┬─────┘
+                      │
+                      ▼
+                ┌───────────┐
+                │ Category  │
+                └───────────┘
 ```
 
 Entity relationships are implemented using JPA annotations such as:
@@ -447,6 +450,10 @@ Entity relationships are implemented using JPA annotations such as:
 ## 🔗 REST API
 
 The application exposes RESTful APIs for interacting with the e-commerce system.
+
+### Swagger / OpenAPI Documentation
+
+The project includes **Swagger / OpenAPI documentation** for exploring and testing the available REST APIs.
 
 ### API Structure
 
@@ -626,6 +633,8 @@ http://localhost:8080
 
 Postman can be used to test the REST APIs.
 
+Swagger / OpenAPI documentation can also be used to explore and test the available API endpoints.
+
 ### Typical Request Flow
 
 ```text
@@ -719,11 +728,11 @@ The security layer contains functionality for:
 * [x] PostgreSQL integration
 * [x] JPA/Hibernate integration
 * [x] API testing with Postman
+* [x] Swagger / OpenAPI documentation
 
 ### 🚧 Planned Improvements
 
 * [ ] External payment gateway integration
-* [ ] Swagger / OpenAPI documentation
 * [ ] Unit testing
 * [ ] Integration testing
 * [ ] Docker containerization
@@ -777,6 +786,7 @@ This project provides practical experience with:
 * Request validation
 * Exception handling
 * API testing
+* Swagger / OpenAPI documentation
 
 ---
 
@@ -819,6 +829,7 @@ Hibernate
 PostgreSQL
 REST APIs
 JWT
+Swagger / OpenAPI
 Backend Development
 ```
 
